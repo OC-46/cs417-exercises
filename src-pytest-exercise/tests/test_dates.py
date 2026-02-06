@@ -23,26 +23,21 @@ def test_days_between_invalid_format():
         days_between("not-a-date", "2025-03-15")
 
 def test_format_relative_today():
-    """format_relative should return 'today' for today's date."""
     today = date.today().strftime("%Y-%m-%d")
     assert format_relative(today) == "today"
 
 def test_format_relative_past():
-    """format_relative should return 'X days ago' for past dates."""
     three_days_ago = (date.today() - timedelta(days=3)).strftime("%Y-%m-%d")
     assert format_relative(three_days_ago) == "3 days ago"
 
 def test_format_relative_future():
-    """format_relative should return 'in X days' for future dates."""
     five_days_future = (date.today() + timedelta(days=5)).strftime("%Y-%m-%d")
     assert format_relative(five_days_future) == "in 5 days"
 
 def test_format_relative_yesterday():
-    """format_relative should handle singular case for yesterday."""
     yesterday = (date.today() - timedelta(days=1)).strftime("%Y-%m-%d")
     assert format_relative(yesterday) == "1 day ago"
 
 def test_format_relative_tomorrow():
-    """format_relative should handle singular case for tomorrow."""
     tomorrow = (date.today() + timedelta(days=1)).strftime("%Y-%m-%d")
     assert format_relative(tomorrow) == "in 1 day"
