@@ -27,19 +27,7 @@ def is_weekend(date_str: str) -> bool:
     return dt.weekday() >= 5
 
 def format_relative(date_str: str) -> str:
-    """
-    Given a date string in YYYY-MM-DD format, return a human-readable string
-    describing how far it is from today.
-    
-    Args:
-        date_str: A date string in YYYY-MM-DD format
-        
-    Returns:
-        A human-readable string describing the relative date:
-        - "today" if it's today's date
-        - "X days ago" if it's in the past
-        - "in X days" if it's in the future
-    """
+    """Format a date string relative to today."""
     target_date = datetime.strptime(date_str, "%Y-%m-%d").date()
     today = date.today()
     
